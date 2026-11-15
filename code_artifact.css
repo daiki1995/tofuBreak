@@ -1,0 +1,77 @@
+
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            overflow: hidden;
+            background: #111827;
+        }
+
+        .font-dela {
+            font-family: 'Dela Gothic One', cursive;
+        }
+
+        /* 画面揺れアニメーション */
+        @keyframes shake-light {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-4px, 2px) rotate(-1deg); }
+            40% { transform: translate(4px, -2px) rotate(1deg); }
+            60% { transform: translate(-3px, -1px) rotate(0deg); }
+            80% { transform: translate(3px, 3px) rotate(1deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        @keyframes shake-heavy {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1.02); }
+            10% { transform: translate(-12px, -8px) rotate(-3deg) scale(1.03); }
+            20% { transform: translate(10px, 8px) rotate(3deg) scale(1.01); }
+            30% { transform: translate(-10px, 6px) rotate(-2deg) scale(1.04); }
+            40% { transform: translate(8px, -10px) rotate(2deg) scale(1); }
+            50% { transform: translate(-6px, 4px) rotate(-1deg) scale(1.02); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+
+        .shake-sm { animation: shake-light 0.15s ease-in-out; }
+        .shake-lg { animation: shake-heavy 0.3s ease-in-out; }
+
+        /* フラッシュ演出 */
+        @keyframes flash {
+            0% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+        .impact-flash {
+            position: absolute;
+            inset: 0;
+            background-color: white;
+            pointer-events: none;
+            animation: flash 0.12s ease-out forwards;
+        }
+
+        /* ヒットストップ用クラス */
+        .hit-stopped {
+            animation-play-state: paused !important;
+        }
+
+        /* カスタムスクロールバー非表示 */
+        ::-webkit-scrollbar { display: none; }
+        
+        /* ボタンの押し込み効果 */
+        .btn-push {
+            transition: transform 0.05s ease, filter 0.05s ease;
+        }
+        .btn-push:active {
+            transform: scale(0.92) translateY(4px);
+            filter: brightness(1.2);
+        }
+
+        /* フィーバー時の背景グロー */
+        .fever-bg {
+            background: radial-gradient(circle, rgba(239,68,68,0.3) 0%, rgba(17,24,39,1) 70%);
+            animation: pulse-fever 0.5s infinite alternate;
+        }
+        @keyframes pulse-fever {
+            0% { filter: hue-rotate(0deg) saturate(1.5); }
+            100% { filter: hue-rotate(45deg) saturate(2.5); }
+        }
+    
